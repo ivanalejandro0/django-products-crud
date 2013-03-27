@@ -135,6 +135,7 @@ DJANGO_APPS = (
 )
 THIRD_PARTY_APPS = (
     'south',
+    'widget_tweaks',
 )
 
 LOCAL_APPS = (
