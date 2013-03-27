@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block header %}
+  <h2>Add product</h2>
+{% endblock %}
+
+{% block content %}
+
+  <form class="form-horizontal" action="." method="POST"> 
+    {% csrf_token %}
+
+    <fieldset>
+      {% for field in form %}
+        <div class="control-group{% if field.errors %} error{% endif %}">
+          <label class="control-label">{{ field.label }} {% if field.field.required %}(*){% endif %}</label>
+          <div class="controls">
+            {{ field|add_class:"input-xlarge" }}
+            <p class="help-block">{{ field.help_text }}</p>
+          </div>
+        </div>
+      {% endfor %}
+
+      <div class="form-actions">
+        <input type="submit" class="btn btn-primary" value="Add">
+        <input type="button" class="btn btn-inverse" value="Cancel">
+      </div>
+    </fieldset>
+  </form>
+{% endblock %}
