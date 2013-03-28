@@ -14,6 +14,7 @@
         <th>Name</th>
         <th>Details</th>
         <th>Price</th>
+        <th>Actions</th>
       </tr>
     </thead>
   {% for product in object_list %}
@@ -21,6 +22,10 @@
       <td>{{ product.name }}</td>
       <td>{{ product.details }}</td>
       <td>{{ product.price }}</td>
+      <td>
+        <a class='btn btn-primary btn-small' href="{% url 'product_edit' product.id %}">edit</a>
+        <a class='btn btn-danger btn-small' href="{% url 'product_remove' product.id %}">delete</a>
+      </td>
     </tr>
   {% endfor %}
   </table>

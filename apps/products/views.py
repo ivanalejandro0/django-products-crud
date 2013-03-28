@@ -41,3 +41,9 @@ def edit(request, id=None):
     content = {'title': 'Edit product', 'form': form}
     context_instance = RequestContext(request)
     return render_to_response('products/form.html', content, context_instance)
+
+
+def remove(request, id=None):
+    # TODO: not implemented yet, redirect to list
+    redirect_url = reverse('products_list')
+    return HttpResponseRedirect(redirect_url)
