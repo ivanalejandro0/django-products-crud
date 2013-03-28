@@ -12,6 +12,10 @@ def add(request):
         form = ProductForm(request.POST)
         if form.is_valid():
             form.save()
+
+            # If the save was successful, redirect to another page
+            redirect_url = reverse('products_list')
+            return HttpResponseRedirect(redirect_url)
     else:
         form = ProductForm()
 
