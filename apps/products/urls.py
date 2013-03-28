@@ -7,4 +7,5 @@ urlpatterns = patterns('products.views',
         template_name="products/list.html",
         model=Product), name='products_list'),
     url(r'^add/$', 'add', name='product_add'),
+    url(r'^edit/(?P<id>\d+)/$', 'edit', name='product_edit'),
 )
