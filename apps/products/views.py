@@ -25,11 +25,13 @@ def add(request):
 
 
 # look at: http://stackoverflow.com/questions/1854237/django-edit-form-based-on-add-form
-def edit(request, id=None):
+def add_or_edit(request, id=None):
     if id:
         product = get_object_or_404(Product, pk=id)
+        action = "Edit "
     else:
         product = Product()
+        action = "Add a new "
 
     if request.POST:
         form = ProductForm(request.POST, instance=product)
@@ -42,7 +44,7 @@ def edit(request, id=None):
     else:
         form = ProductForm(instance=product)
 
-    content = {'title': 'Edit product', 'form': form}
+    content = {'title': action + 'product', 'form': form}
     context_instance = RequestContext(request)
     return render_to_response('products/form.html', content, context_instance)
 
