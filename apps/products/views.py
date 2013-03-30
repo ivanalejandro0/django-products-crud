@@ -14,7 +14,7 @@ def add(request):
             form.save()
 
             # If the save was successful, redirect to another page
-            redirect_url = reverse('products_list')
+            redirect_url = reverse('products:list')
             return HttpResponseRedirect(redirect_url)
     else:
         form = ProductForm()
@@ -39,7 +39,7 @@ def add_or_edit(request, id=None):
             form.save()
 
             # If the save was successful, redirect to another page
-            redirect_url = reverse('products_list')
+            redirect_url = reverse('products:list')
             return HttpResponseRedirect(redirect_url)
     else:
         form = ProductForm(instance=product)
@@ -51,5 +51,5 @@ def add_or_edit(request, id=None):
 
 def remove(request, id=None):
     # TODO: not implemented yet, redirect to list
-    redirect_url = reverse('products_list')
+    redirect_url = reverse('products:list')
     return HttpResponseRedirect(redirect_url)

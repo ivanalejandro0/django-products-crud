@@ -23,14 +23,14 @@
       <td>{{ product.details }}</td>
       <td>{{ product.price }}</td>
       <td>
-        <a class='btn btn-primary btn-small' href="{% url 'product_edit' product.id %}">edit</a>
-        <a class='btn btn-danger btn-small remove' href="{% url 'product_remove' product.id %}">delete</a>
+        <a class='btn btn-primary btn-small' href="{% url 'products:edit' product.id %}">edit</a>
+        <a class='btn btn-danger btn-small remove' href="{% url 'products:remove' product.id %}">delete</a>
       </td>
     </tr>
   {% endfor %}
   </table>
 
-  <a class='btn btn-success' href="{% url 'product_add' %}">add new product</a>
+  <a class='btn btn-success' href="{% url 'products:add' %}">add new product</a>
 
 {% endblock %}
 

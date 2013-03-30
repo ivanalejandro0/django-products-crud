@@ -5,8 +5,8 @@ from products.models import Product
 urlpatterns = patterns('products.views',
     url(r'^list/$', ListView.as_view(
         template_name="products/list.html",
-        model=Product), name='products_list'),
-    url(r'^add/$', 'add_or_edit', name='product_add'),
-    url(r'^edit/(?P<id>\d+)/$', 'add_or_edit', name='product_edit'),
-    url(r'^remove/(?P<id>\d+)/$', 'remove', name='product_remove'),
+        model=Product), name='list'),
+    url(r'^add/$', 'add_or_edit', name='add'),
+    url(r'^edit/(?P<id>\d+)/$', 'add_or_edit', name='edit'),
+    url(r'^remove/(?P<id>\d+)/$', 'remove', name='remove'),
 )
