@@ -2,10 +2,10 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
+from django.contrib import messages
 
 from products.forms import ProductForm
 from products.models import Product
-
 
 def add(request):
     if request.POST:
@@ -51,5 +51,6 @@ def add_or_edit(request, id=None):
 
 def remove(request, id=None):
     # TODO: not implemented yet, redirect to list
+    messages.add_message(request, messages.SUCCESS, "The item was succesfuly removed")
     redirect_url = reverse('products:list')
     return HttpResponseRedirect(redirect_url)
