@@ -51,6 +51,7 @@ def add_or_edit(request, id=None):
 
 def remove(request, id=None):
     # TODO: not implemented yet, redirect to list
-    messages.add_message(request, messages.SUCCESS, "The item was succesfuly removed")
+    # messages.add_message(request, messages.SUCCESS, "The item was succesfuly removed")
+    messages.add_message(request, messages.WARNING, "This functionality it's not implemented yet.")
     redirect_url = reverse('products:list')
     return HttpResponseRedirect(redirect_url)
